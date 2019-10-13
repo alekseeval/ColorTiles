@@ -83,6 +83,7 @@ public class gameActivity extends AppCompatActivity {
                         for (int i = 0; i < ySize; i++){
                             changeColor(allViews[xPos][i]);
                         }
+                        checkAllColors();
                     }
 
                     void changeColor(View v) {
@@ -98,6 +99,24 @@ public class gameActivity extends AppCompatActivity {
 
             mainLayout.addView(layout);
         }
+    }
+
+    public void checkAllColors(){
+
+        ColorDrawable d = (ColorDrawable) this.allViews[0][0].getBackground();
+        int curColor = d.getColor();
+
+        for (int i = 0; i < xSize; i++){
+            for(int j = 0; j < ySize; j++){
+                d = (ColorDrawable)this.allViews[i][j].getBackground();
+                if (curColor != d.getColor()){
+                    return;
+                }
+            }
+        }
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "YOU WIN!!!", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
