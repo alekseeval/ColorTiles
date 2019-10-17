@@ -5,4 +5,6 @@
     <string name="len">Length: </string>
     <string name="width">Width: </string>
     <string name="textviewRandom">Random field\'s color</string>
+    <string name="x_preset">4</string>
+    <string name="y_preset">4</string>
 </resources>

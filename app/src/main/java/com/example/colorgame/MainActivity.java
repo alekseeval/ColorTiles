@@ -15,6 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        EditText x = findViewById(R.id.ySize);
+        EditText y = findViewById(R.id.xSize);
+
+        x.setText(R.string.x_preset);
+        y.setText(R.string.y_preset);
     }
 
     public void onClick(View view) {
