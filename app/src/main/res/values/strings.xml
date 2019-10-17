@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">ColorGame</string>
     <string name="pressToStart">Press to start</string>
-    <string name="enterValues">Введите размер поля (3~9):</string>
+    <string name="enterValues">Введите параметры поля:</string>
+    <string name="len">Length: </string>
+    <string name="width">Width: </string>
+    <string name="textviewRandom">Random field\'s color</string>
 </resources>

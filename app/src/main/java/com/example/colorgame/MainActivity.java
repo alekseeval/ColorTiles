@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -45,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, gameActivity.class);
             intent.putExtra("x", xSize);
             intent.putExtra("y", ySize);
+            CheckBox checkbox = findViewById(R.id.checkBox);
+            if (checkbox.isChecked()){
+                intent.putExtra("randomGeneration", true);
+            }else{
+                intent.putExtra("randomGeneration", false);
+            }
             startActivity(intent);
         }
     }

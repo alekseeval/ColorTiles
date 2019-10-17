@@ -13,9 +13,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class gameActivity extends AppCompatActivity {
 
     int xSize, ySize;
+    boolean randomGeneration;
     int lightColor, darkColor;
     View[][] allViews;
 
@@ -31,8 +34,10 @@ public class gameActivity extends AppCompatActivity {
 
         // Установка размера поля
         // Параметр получен из другйо активности
-        this.xSize = getIntent().getExtras().getInt("x");
-        this.ySize = getIntent().getExtras().getInt("y");
+        Intent cur = getIntent();
+        this.xSize = cur.getExtras().getInt("x");
+        this.ySize = cur.getExtras().getInt("y");
+        this.randomGeneration = cur.getExtras().getBoolean("randomGeneration");
 
         // Получение цветов поля
         Resources res = getResources();
@@ -59,10 +64,19 @@ public class gameActivity extends AppCompatActivity {
             for (int j = 0; j < this.ySize; j++){
                 View view = new View(this);
                 view.setLayoutParams(params);
-                if ((i+j)%2 == 0){
-                    view.setBackgroundColor(this.lightColor);
+                if (randomGeneration){
+                    Random r = new Random();
+                    if (r.nextInt(2) == 0){
+                        view.setBackgroundColor(this.lightColor);
+                    }else {
+                        view.setBackgroundColor(this.darkColor);
+                    }
                 }else {
-                    view.setBackgroundColor(this.darkColor);
+                    if ((i + j) % 2 == 0) {
+                        view.setBackgroundColor(this.lightColor);
+                    } else {
+                        view.setBackgroundColor(this.darkColor);
+                    }
                 }
                 layout.addView(view);
                 this.allViews[i][j] = view;
